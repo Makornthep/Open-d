@@ -1,0 +1,114 @@
+.title-home-display{
+    color: white;
+    font-family: 'Raleway', sans-serif;
+}
+
+.nav-text{
+    font-size: 25px;
+    font-family: 'Raleway', sans-serif;
+}
+
+.active{
+    color: #40BFFF !important;
+    
+}
+
+.card-search{
+    height: 4em;
+}
+
+.bg-search{
+    background-color: white;
+    width: 90%;
+    height: 4em;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.bg-search-2{
+    background-color: #494CA3;
+    width : 10%;
+    height: 4em;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.search-display{
+    display: flex;
+}
+
+.menu-bar{
+    background-color: #F6F6F6;
+    width: 100%;
+    height: 12em;
+    margin-top: -3em;
+    display: flex;
+    padding-left: 1em;
+    padding-right: 1em;
+    margin-bottom: 5em;
+}
+
+.menu-button{
+    width: 14em;
+    height: 10em;
+    background-color: aliceblue;
+    border: solid 1px;
+    
+}
+
+.menu-bar-g{
+    display: flex;
+    padding-left: 15em;
+    padding-top: 5em;
+}
+
+.text-menu{
+    font-size: 20px;
+}
+
+p {
+    margin-top: 10px !important;
+    margin-bottom: 0rem !important;
+  }
+
+.text-search-btn{
+    margin-top: 22px;
+    color: white;
+}
+
+.text-search-input{
+    margin-top: 22px;
+    margin-left: 3em;
+    color: darkgrey;
+}
+
+.count-data{
+    margin-bottom: 10px;
+}
+
+.card-data{
+    height: 1em !important;
+}
+
+#notes{
+    line-height: 16px!important;
+}
+
+.column {
+    float: left;
+    width: 33.33%;
+    padding: 10px;
+    height: 300px; /* Should be removed. Only for demonstration */
+  }
+
+
+
+
+.img_ori{
+    padding: 4.3px;
+    width: 40px;
+    height: 36px;
+    border-radius: 5px;
+    box-shadow: rgb(0 0 0 / 40%) 0px 1px 4px;
+}
+
