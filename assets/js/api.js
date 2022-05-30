@@ -1,23 +1,19 @@
-function fetchData1() {
+function fetchData() {
   
   var domain = ["https://gdcatalog.go.th","https://data.go.th"]  
   let output1 = "";
+  let searchText = document.getElementById('searchText').value;
+  console.log(searchText)
   
   for (let i = 0; i < domain.length; i++) {
   console.log(domain[i])
-
-  fetch(`${domain[i]}/api/3/action/package_search?q=&use_default_schema=true&rows=10`).then(response => {
-
+  fetch(`${domain[i]}/api/3/action/package_search?q=${searchText}&use_default_schema=true&rows=49`).then(response => {
         if(!response.ok){
             throw Error("error");
         }
         return response.json();
     })
-
     .then(data => {
-        
-        let output2 = "";
-
         console.log(data.result.results);
         data.result.results.forEach(function(group) {
             group.resources.forEach(function(product) {
@@ -25,9 +21,8 @@ function fetchData1() {
               var date = moment(product.metadata_modified).locale('th').add(543, 'year').format('LL');
               var url = domain[i].split("//")[1]
               console.log(domain[i])
-              
-              
               output1 +=`
+              <div class = "col-md-4"> 
               <div class = "column" > 
               <div class="card" style="width: 100%;height: 100%;">
               <div class="card-body">
@@ -42,42 +37,15 @@ function fetchData1() {
                 </div>
               </div>
               </div>
-              </div>`;
-
-          
-              
-              // output2 += `
-              // <div class = "column"> 
-              // <div class="card" style="width: 100%;height: 100%;">
-              // <div class="card-body">
-              //   <h5 class="card-title" style="max-width: 288px; line-height: 1.5em; height: 3em; overflow: hidden; text-overflow: ellipsis; width: 100%; font-size: 25px; font-family: 'Kanit', sans-serif;">${product.name}</h5>
-              //   <p class="card-text" id="notes" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 400px; font-size: 16px; padding-bottom: 10px; font-family: 'Kanit', sans-serif;">${product.description}</p>
-              //   <div><img src="assets/img/icons/calendar.png" height="15" alt="..." style="margin-left: 2px; margin-right: 10px;"/><label style="font-size: 14px;margin-top: 5px; font-family: 'Kanit', sans-serif;">${date}</div>
-              //   <div><img src="assets/img/icons/building.png" height="15" alt="..." style="margin-left: 2px; margin-right: 10px; margin-bottom: 28px;"/><label style="font-size: 14px;margin-top: 5px; font-family: 'Kanit', sans-serif; white-space: nowrap;
-              //   text-overflow: ellipsis; overflow: hidden; max-width: 240px;">${group.organization.title}</div>
-              //   <div style="margin-top: 1%;">
-              //   <a href='http://playground.opend.cloud/${url}/ckan/${product["id"]}' class="btn btn-primary" target="_blank">Playground</a>
-              //   <a href='${product["ckan_url"]}/dataset/${product["package_id"]}/resource/${product.id}'   target="_blank" class="btn btn-primary" style="background-color: white;border: white;"  alt="${url}"><img src="assets/img/icons/url.png" height="24.5"/></a>
-              //   </div>
-              // </div>
-              // </div>
-              // </div>`;
-              
-              
+              </div>
+              </div>`; 
               dataOutput1.innerHTML = output1;
+              $(".col-md-4:hidden").slice(0, 12).slideDown();
             }
            });
         })
-        
-        
-        //dataOutput2.innerHTML = output2;
     })
-  
-    
   }
-  
-  
   }
 
-//datastore_active: true
-fetchData1();
+fetchData();

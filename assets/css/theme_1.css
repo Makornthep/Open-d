@@ -21,27 +21,30 @@
     background-color: white;
     width: 90%;
     height: 4em;
-    border-bottom-left-radius: 5px;
-    border-top-left-radius: 5px;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
 }
 
 .bg-search-2{
     background-color: #494CA3;
     width : 10%;
     height: 4em;
-    border-bottom-right-radius: 5px;
-    border-top-right-radius: 5px;
+    padding: 14px;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
 }
 
 .search-display{
     display: flex;
+    margin-bottom: 12px;
 }
 
 .menu-bar{
     background-color: #F6F6F6;
     width: 100%;
-    height: 12em;
-    margin-top: -3em;
+    height: 10.5em;
     display: flex;
     padding-left: 1em;
     padding-right: 1em;
@@ -59,7 +62,7 @@
 .menu-bar-g{
     display: flex;
     padding-left: 15em;
-    padding-top: 5em;
+    padding-top: 4em;
 }
 
 .text-menu{
@@ -94,16 +97,6 @@ p {
     line-height: 16px!important;
 }
 
-.column {
-    float: left;
-    width: 33.33%;
-    padding: 10px;
-    height: 300px; /* Should be removed. Only for demonstration */
-  }
-
-
-
-
 .img_ori{
     padding: 4.3px;
     width: 40px;
@@ -112,3 +105,66 @@ p {
     box-shadow: rgb(0 0 0 / 40%) 0px 1px 4px;
 }
 
+
+
+
+.load-more{
+    font-family: 'Kanit', sans-serif;
+    background-color: #494CA3;
+    font-size: 14px;
+    color: white;
+    padding: 0.4em;
+    text-align: center;
+    border-radius: 7px;
+    border: none;
+    width: 9em;
+    padding: 10px;
+    box-shadow: rgb(0 0 0 / 40%) 0px 1px 4px;
+}
+
+.load-more:hover{
+    color: white;
+    text-decoration: none;
+}
+
+.loadmorebtn{
+    margin-top: 2em !important;
+    margin-bottom: 4em !important;
+    text-align: center;
+}
+
+.column{
+    height: 100%;
+}
+.col-md-4{
+    float: left;
+    width: 33.33%;
+    padding: 10px;
+    height: 300px; 
+    display:none;
+    }
+
+#searchText{
+    width: 100%;
+    height: 100%;
+    border: none;
+    padding-left: 33px;
+    border-radius: 10px;
+}
+
+input:focus, textarea:focus, select:focus{
+    outline: none;
+}
+
+#searchBtn{
+    color: white;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    background-color: #494CA3;
+    border: none;
+}
+
+#searchBtn:focus{
+    outline: none;
+}
