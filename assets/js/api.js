@@ -1,13 +1,20 @@
 function fetchData() {
   
-  var domain = ["https://gdcatalog.go.th","https://data.go.th"]  
+  var domain = [
+                  { "url":"https://gdcatalog.go.th",
+                    "logo":"https://gdcatalog.go.th/uploads/admin/2021-04-22-162442.159662gdlogo.ico"},
+
+                  {  "url":"https://data.go.th",
+                    "logo":"https://data.go.th/sbs/images/logo2.png"}
+               ]  
+
   let output1 = "";
   let searchText = document.getElementById('searchText').value;
   console.log(searchText)
 
   for (let i = 0; i < domain.length; i++) {
   console.log(domain[i])
-  fetch(`${domain[i]}/api/3/action/package_search?q=${searchText}&use_default_schema=true&rows=20`).then(response => {
+  fetch(`${domain[i]["url"]}/api/3/action/package_search?q=${searchText}&use_default_schema=true&rows=15`).then(response => {
         if(!response.ok){
             throw Error("error");
         }
@@ -21,6 +28,7 @@ function fetchData() {
               var date = moment(product.metadata_modified).locale('th').add(543, 'year').format('LL');
               var url = domain[i].split("//")[1]
               console.log(domain[i])
+              console.log(url)
               output1 +=`
               <div class = "col-md-4 col-sm-12 api-dispaly"> 
               <div class = "column" > 
@@ -35,8 +43,8 @@ function fetchData() {
                       <div class=""><img src="assets/img/icons/building.png" height="15" style="margin-top: 5px;"/></div>
                       <div class="col-md-12 col-img-ower"><label class="content-col">${group.organization.title}</div></div>
                   <div style="margin-top: 1%;">
-                      <a href='http://playground.opend.cloud/${url}/ckan/${product["id"]}' class="btn btn-primary" target="_blank">Playground</a>
-                      <a href='${product["ckan_url"]}/dataset/${product["package_id"]}/resource/${product.id}'   target="_blank" style="background-color: white;border: white;"  alt="${url}"><img src="assets/img/icons/gdcatalog.png" height="24.5" class="img_ori"/></a>
+                      <a href='//playground.opend.cloud/${url}/ckan/${product["id"]}' class="btn btn-primary" target="_blank">Playground</a>
+                      <a href='//${url}/dataset/${product["package_id"]}/resource/${product.id}'   target="_blank" style="background-color: white;border: white;"  alt="${url}"><img src="assets/img/icons/gdcatalog.png" height="24.5" class="img_ori"/></a>
                   </div>
               </div>
               </div>
