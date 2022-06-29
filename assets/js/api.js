@@ -15,7 +15,7 @@ function fetchData() {
 
   for (let i = 0; i < domain.length; i++) {
   console.log(domain[i])
-  fetch(`${domain[i]["url"]}/api/3/action/package_search?q=ครัว&use_default_schema=true&rows=20`).then(response => {
+  fetch(`${domain[i]["url"]}/api/3/action/package_search?q=${searchText}&use_default_schema=true&rows=49`).then(response => {
         if(!response.ok){
             throw Error("error");
         }
