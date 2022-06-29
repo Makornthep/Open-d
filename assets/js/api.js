@@ -1,36 +1,42 @@
 function fetchData() {
-  
-  var domain = [
-                  { "url":"https://gdcatalog.go.th",
-                    "logo":"https://gdcatalog.go.th/uploads/admin/2021-04-22-162442.159662gdlogo.ico"},
 
-                  {  "url":"https://data.go.th",
-                    "logo":"https://data.go.th/sbs/images/logo2.png"}
-               ]  
+  var domain = [
+    {
+      "url": "https://gdcatalog.go.th",
+      "logo": "https://gdcatalog.go.th/uploads/admin/2021-04-22-162442.159662gdlogo.ico"
+    },
+
+    {
+      "url": "https://data.go.th",
+      "logo": "https://data.go.th/sbs/images/logo2.png"
+    }
+  ]
 
   let output1 = "";
   let countapi = 0;
   let searchText = document.getElementById('searchText').value;
-  console.log(searchText)
+  let myalert2 = document.getElementById("alert");
+  myalert2.style.display = "none";
+  //console.log(searchText)
 
   for (let i = 0; i < domain.length; i++) {
-  console.log(domain[i])
-  fetch(`${domain[i]["url"]}/api/3/action/package_search?q=${searchText}&use_default_schema=true&rows=49`).then(response => {
-        if(!response.ok){
-            throw Error("error");
-        }
-        return response.json();
+    //console.log(domain[i])
+    fetch(`${domain[i]["url"]}/api/3/action/package_search?q=${searchText}&use_default_schema=true&rows=49`).then(response => {
+      if (!response.ok) {
+        throw Error("error");
+      }
+      return response.json();
     })
-    .then(data => {
-        console.log(data.result.results);
-        data.result.results.forEach(function(group) {
-            group.resources.forEach(function(product) {
-              if(product.datastore_active && product.datastore_contains_all_records_of_source_file && product.name != "Technical" && product.name != "Data Dictionary" && product.name != "data dictionary" && product.name != "datadict"){
+      .then(data => {
+        //console.log(data.result.results);
+        data.result.results.forEach(function (group) {
+          group.resources.forEach(function (product) {
+            if (product.datastore_active && product.datastore_contains_all_records_of_source_file && product.name != "Technical" && product.name != "Data Dictionary" && product.name != "data dictionary" && product.name != "datadict") {
               var date = moment(product.metadata_modified).locale('th').add(543, 'year').format('LL');
               var url = domain[i]["url"].split("//")[1]
               countapi += 1;
-              
-              output1 +=`
+              //console.log(countapi)
+              output1 += `
               <div class = "col-md-4 col-sm-12 api-dispaly" id = "cradapi"> 
               <div class = "column"> 
               <div class="card" style="width: 100%;height: 100%; box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;">
@@ -53,14 +59,14 @@ function fetchData() {
               </div>`;
               dataOutput1.innerHTML = output1;
               dataresult.innerHTML = countapi;
-              $(".col-md-4:hidden").slice(0, 12).slideDown();
+              $(".col-md-4:hidden").slice(0, 15).slideDown();
             }
-           });
+          });
         })
-        
-    })
+
+      })
   }
-  
-  }
+
+}
 
 fetchData();

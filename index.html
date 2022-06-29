@@ -8,7 +8,7 @@
     <!-- title -->
     <title>Open-D</title>
     <link rel="icon" type="image/x-icon" href="assets/img/icons/openico.ico">
-    
+
 
     <!-- css -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -52,10 +52,13 @@
         <div class="container" style="top: 30px;padding-left: 8%;padding-right: 8%;">
             <div class="search-display">
                 <div class="card-search bg-search col-lg-10 col-md-10 col-sm-8">
-                    <input id="searchText" placeholder="พิมพ์เพื่อค้นหา..." style="font-family: 'Kanit', sans-serif;"></input>
+                    <input value="" id="searchText" placeholder="พิมพ์เพื่อค้นหา..."
+                        style="font-family: 'Kanit', sans-serif;"></input>
                 </div>
-                <div class="card-search bg-search-2 text-center col-lg-2 col-md-2 col-sm-4 col-xs-3" onclick="fetchData()">
-                    <button id="searchBtn" ><img src="assets/img/icons/search-w.png" height="20" class="icon-search" />ค้นหา</button>
+                <div class="card-search bg-search-2 text-center col-lg-2 col-md-2 col-sm-4 col-xs-3"
+                    onclick="fetchData()">
+                    <button id="searchBtn" ><img src="assets/img/icons/search-w.png" height="20"
+                            class="icon-search" />ค้นหา</button>
                 </div>
             </div>
         </div>
@@ -67,7 +70,7 @@
             <div class="menu-bar-g">
 
                 <div class="col-sm-4 col-lg-4 col-sm-4 text-center col-menu"><img src="assets/img/gallery/home.png"
-                        height="40" alt="..." ahref="https://playground-portal.opend.cloud/index.html"/>
+                        height="40" alt="..." ahref="https://playground-portal.opend.cloud/index.html" />
                     <p class="text-menu" href="user-research.html" style="font-family: 'Kanit', sans-serif;">หน้าแรก</p>
                 </div>
                 <div class="col-sm-4 col-lg-4 col-sm-4 text-center col-menu"><img src="assets/img/gallery/data.png"
@@ -84,9 +87,9 @@
 
     <div>
         <div class="row-sumapi">
-        <div><label class="label-count-data">พบ</label></div>
-        <div><label id="dataresult">0</label></div>
-        <div><label class="label-count-data-2">ชุดข้อมูล</label></div>
+            <div><label class="label-count-data">พบ</label></div>
+            <div><label id="dataresult">0</label></div>
+            <div><label class="label-count-data-2">ชุดข้อมูล</label></div>
         </div>
     </div>
     <div class="display-api assd">
@@ -94,7 +97,7 @@
             <div id="dataOutput1" class="apisum"></div>
 
             <div id="alert">
-                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
                 <strong>แจ้งเตือน!</strong> ข้อมูลหมดแล้ว
             </div>
 
@@ -113,43 +116,32 @@
         <div class="footer__addr">
             <img src="assets/img/nectec.png" height="120" alt="logo">
         </div>
-
         <ul class="footer__nav">
             <li class="nav__item">
                 <h2 class="nav__title"></h2>
                 <ul class="nav__ul">
-                    
                 </ul>
             </li>
-
             <li class="nav__item nav__item--extra">
                 <h2 class="nav__title"></h2>
-
                 <ul class="nav__ul nav__ul--extra">
                     <li>
                         <a href="#"></a>
                     </li>
                 </ul>
             </li>
-
             <li class="nav__item">
-                
-                </ul>
-            </li>
         </ul>
-
+        </li>
+        </ul>
         <div class="legal">
-            
-
-            <div class="legal__links">
-                
-            </div>
+            <div class="legal__links"></div>
         </div>
     </footer>
 
 
 
-    
+
     <!-- js -->
     <script src="assets/js/jquery-3.6.0.min.js" type="text/javascript"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
@@ -180,7 +172,6 @@
             $("body").on('click touchstart', '.load-more', function (e) {
                 $(".col-md-4:hidden").slice(0, 12).slideDown();
                 if ($(".col-md-4:hidden").length == 0) {
-                    $(".load-more").css('visibility', 'hidden');
                     myalert.style.display = "block";
                 }
             });
@@ -201,7 +192,7 @@
                     mybutton.style.display = "block";
                 } else {
                     mybutton.style.display = "none";
-                    
+
                 }
             }
             // When the user clicks on the button, scroll to the top of the document
@@ -211,9 +202,6 @@
                 document.body.scrollTop = 0;
                 document.documentElement.scrollTop = 0;
             }
-
-           
-
         });
 
     </script>
